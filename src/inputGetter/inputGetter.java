@@ -26,10 +26,11 @@ public class inputGetter implements performable{
 		   Scanner in = new Scanner(System.in);
 		   Queue<String> titles = new LinkedList<String>();
 		   System.out.println("Please enter titles, press ! to end.");
-		   String s="";
-		   
-		   while(in.hasNextLine() && (s=in.nextLine()).length()>0){
-			   titles.offer(s);
+	
+		   while(in.hasNextLine()){
+			   String s = in.nextLine();
+			   if(s.equals("!")) break;
+			   else titles.offer(s);
 		   }
 		   in.close();
 		   return titles;
