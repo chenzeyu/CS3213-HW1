@@ -1,14 +1,15 @@
 package dataStorage;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 
 public class dataStorage {
 	public static dataStorage sharedInstance = new dataStorage();
 	
-	public static Queue<String> wordsToIgnore = new LinkedList<String>();
-	public static Queue<String> titles = new LinkedList<String>();
-	public static Queue<String> results = new LinkedList<String>();
+	public Queue<String> wordsToIgnore = new LinkedList<String>();
+	public Queue<String> titles = new LinkedList<String>();
+	public List<String> results = new LinkedList<String>();
 	
 	private dataStorage(){
 	}
@@ -25,7 +26,14 @@ public class dataStorage {
 		return titles.offer(s);
 	}
 	
-	public void setResults(Queue<String> q){
-		results = q;
+	public void setResults(List<String> l){
+		results = l;
+	}
+	
+	public Queue<String> getTitles(){
+		return titles;
+	}
+	public List<String> getResults(){
+		return results;
 	}
 }
