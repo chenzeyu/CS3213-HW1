@@ -27,7 +27,7 @@ public class inputGetter implements performable{
 		   Queue<String> titles = new LinkedList<String>();
 		   System.out.println("Please enter titles, press ! to end.");
 		   String s = in.nextLine();
-		   while(s != "!"){
+		   while(s.length()>0){
 			   titles.offer(s);
 			   s = in.nextLine();
 		   }
@@ -37,8 +37,8 @@ public class inputGetter implements performable{
 
 	@Override
 	public boolean performTask() {
-		Queue<String>titles = getTitles();
 		Queue<String>wordsToIgnore = getWordsToIgnore();
+		Queue<String>titles = getTitles();
 		store.titles = titles;
 		store.wordsToIgnore = wordsToIgnore;
 		// TODO Auto-generated method stub
