@@ -16,18 +16,17 @@ public class KWIC {
 		title.offer("The Day after Tomorrow");
 		title.offer("Fast and Furious");
 		title.offer("Man of Steel");
-		Queue<String> result = goKWIC(wordsToIgnore, title);
-		@SuppressWarnings("unchecked")
-		List<String> result2 = (List<String>)result;
-		Collections.sort(result2, ALPHABETICAL_ORDER);
-		int iterationTime = result2.size();
+		List<String> result = goKWIC(wordsToIgnore, title);
+		Collections.sort(result, ALPHABETICAL_ORDER);
+		
+		int iterationTime = result.size();
 		for(int i=0; i<iterationTime;i++)
-			System.out.println(result2.get(i));
+			System.out.println(result.get(i));
 	}
 	
 	
-	public static Queue<String> goKWIC(Queue<String> WTI, Queue<String> T){
-		Queue<String> result = new LinkedList<String>();
+	public static List<String> goKWIC(Queue<String> WTI, Queue<String> T){
+		List<String> result = new LinkedList<String>();
 		int noOfTitles = T.size();
 		for(int i=0; i<noOfTitles;i++){
 			String tempTitle = T.poll();
@@ -41,7 +40,7 @@ public class KWIC {
 				String first = temp.peek();
 				//System.out.println("---" + first);
 				if(!WTI.contains(first.toUpperCase())){
-					result.offer(queueToString(temp));
+					result.add(queueToString(temp));
 				}	
 				temp.poll();
 				temp.offer(first);				
