@@ -1,4 +1,4 @@
 
 public interface performable {
-	public void performTask();
+	public boolean performTask();
 }
