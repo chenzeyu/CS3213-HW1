@@ -50,7 +50,10 @@ public class circularShifter implements performable{
 			int iterationTime = list.size();
 			for(int i=0; i<iterationTime;i++){
 				String first = list.poll();
-				result = result + first + " ";
+				if(i == 0)
+					result = result + first.toUpperCase() + " ";
+				else
+					result = result + first+ " ";
 				list.offer(first);
 			}
 			return result.substring(0,result.length()-1);
